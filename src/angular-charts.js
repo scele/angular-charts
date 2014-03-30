@@ -258,7 +258,7 @@ angular.module('angularCharts').directive('acChart', function($templateCache, $c
         .attr("height", 0)
       .transition()
         .ease("cubic-in-out")
-        .duration(1000)
+        .duration(0)
         .attr("y", function(d) { return y(Math.max(0, d.y)); })
         .attr("height", function(d) { return Math.abs(y(d.y) - y(0)); });  
       /**
@@ -404,7 +404,7 @@ angular.module('angularCharts').directive('acChart', function($templateCache, $c
       path.attr("stroke-dasharray", totalLength + " " + totalLength)
       .attr("stroke-dashoffset", totalLength)
       .transition()
-        .duration(1500)
+        .duration(0)
         .ease("linear")
         .attr("stroke-dashoffset", 0)
         .attr("d", function(d) { return line(d.values) });
@@ -611,7 +611,7 @@ angular.module('angularCharts').directive('acChart', function($templateCache, $c
                     .style("fill", function(d, i) { return getColor(i); })
                     .transition()
                     .ease("linear")
-                    .duration(500)
+                    .duration(0)
                     .attrTween("d", tweenPie)
                     .attr("class", "arc");
 
