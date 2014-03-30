@@ -591,6 +591,10 @@ angular.module('angularCharts').directive('acChart', function($templateCache, $c
 
       scope.yMaxData = points.length;
 
+      function firstOrDefault(value) {
+        return (value instanceof Array) ? value[0] : value;
+      }
+
       var arc = d3.svg.arc()
                   .outerRadius(radius - 10)
                   .innerRadius(0);
@@ -601,7 +605,7 @@ angular.module('angularCharts').directive('acChart', function($templateCache, $c
 
       var pie = d3.layout.pie()
                   .sort(null)
-                  .value(function(d) { return d.y[0]; });
+                  .value(function(d) { return firstOrDefault(d.y); });
 
       var path = svg.selectAll(".arc")
                     .data(pie(points))
@@ -616,7 +620,7 @@ angular.module('angularCharts').directive('acChart', function($templateCache, $c
                     .attr("class", "arc");
 
       path.on("mouseover", function(d) { 
-        makeToolTip(d.data.tooltip || d.data.y[0]);
+        makeToolTip(d.data.tooltip || firstOrDefault(d.data.y));
         d3.select(this)
             .select('path')
             .transition()
@@ -650,7 +654,7 @@ angular.module('angularCharts').directive('acChart', function($templateCache, $c
           .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
           .attr("dy", ".35em")
           .style("text-anchor", "middle")
-          .text(function(d) { return d.data.y[0]; });  
+          .text(function(d) { return firstOrDefault(d.data.y); });
       }
 
       function tweenPie(b) {

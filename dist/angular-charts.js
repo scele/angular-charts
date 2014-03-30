@@ -510,17 +510,20 @@ angular.module('angularCharts').directive('acChart', [
         var radius = Math.min(width, height) / 2;
         var svg = d3.select(chartContainer[0]).append('svg').attr('width', width).attr('height', height).append('g').attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
         scope.yMaxData = points.length;
+        function firstOrDefault(value) {
+          return value instanceof Array ? value[0] : value;
+        }
         var arc = d3.svg.arc().outerRadius(radius - 10).innerRadius(0);
         var arcOver = d3.svg.arc().outerRadius(radius + 5).innerRadius(0);
         var pie = d3.layout.pie().sort(null).value(function (d) {
-            return d.y[0];
+            return firstOrDefault(d.y);
           });
         var path = svg.selectAll('.arc').data(pie(points)).enter().append('g');
         var arcs = path.append('path').style('fill', function (d, i) {
             return getColor(i);
           }).transition().ease('linear').duration(0).attrTween('d', tweenPie).attr('class', 'arc');
         path.on('mouseover', function (d) {
-          makeToolTip(d.data.tooltip || d.data.y[0]);
+          makeToolTip(d.data.tooltip || firstOrDefault(d.data.y));
           d3.select(this).select('path').transition().duration(200).style('stroke', 'white').style('stroke-width', '2px');
           config.mouseover(d, d3.event);
           scope.$apply();
@@ -539,7 +542,7 @@ angular.module('angularCharts').directive('acChart', [
           path.append('text').attr('transform', function (d) {
             return 'translate(' + arc.centroid(d) + ')';
           }).attr('dy', '.35em').style('text-anchor', 'middle').text(function (d) {
-            return d.data.y[0];
+            return firstOrDefault(d.data.y);
           });
         }
         function tweenPie(b) {
