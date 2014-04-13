@@ -224,6 +224,7 @@ angular.module('angularCharts').directive('acChart', function($templateCache, $c
       var svg = d3.select(chartContainer[0]).append("svg")
           .attr("width", width + margin.left + margin.right)
           .attr("height", height + margin.top + margin.bottom)
+          .attr("xmlns", "http://www.w3.org/2000/svg")
         .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -366,6 +367,7 @@ angular.module('angularCharts').directive('acChart', function($templateCache, $c
       var svg = d3.select(chartContainer[0]).append("svg")
           .attr("width", width + margin.left + margin.right)
           .attr("height", height + margin.top + margin.bottom)
+          .attr("xmlns", "http://www.w3.org/2000/svg")
         .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -540,6 +542,7 @@ angular.module('angularCharts').directive('acChart', function($templateCache, $c
       var svg = d3.select(chartContainer[0]).append("svg")
           .attr("width", width + margin.left + margin.right)
           .attr("height", height + margin.top + margin.bottom)
+          .attr("xmlns", "http://www.w3.org/2000/svg")
         .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -586,6 +589,7 @@ angular.module('angularCharts').directive('acChart', function($templateCache, $c
       var svg = d3.select(chartContainer[0]).append("svg")
                   .attr("width", width)
                   .attr("height", height)
+                  .attr("xmlns", "http://www.w3.org/2000/svg")
                   .append("g")
                   .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
@@ -718,6 +722,7 @@ angular.module('angularCharts').directive('acChart', function($templateCache, $c
       var svg = d3.select(chartContainer[0]).append("svg")
           .attr("width", width + margin.left + margin.right)
           .attr("height", height + margin.top + margin.bottom)
+          .attr("xmlns", "http://www.w3.org/2000/svg")
         .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 

@@ -215,7 +215,7 @@ angular.module('angularCharts').directive('acChart', [
        * Start drawing the chart!
        * @type {[type]}
        */
-        var svg = d3.select(chartContainer[0]).append('svg').attr('width', width + margin.left + margin.right).attr('height', height + margin.top + margin.bottom).append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+        var svg = d3.select(chartContainer[0]).append('svg').attr('width', width + margin.left + margin.right).attr('height', height + margin.top + margin.bottom).attr('xmlns', 'http://www.w3.org/2000/svg').append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
         svg.append('g').attr('class', 'x axis').attr('transform', 'translate(0,' + height + ')').call(xAxis);
         svg.append('g').attr('class', 'y axis').call(yAxis);
         /**
@@ -332,7 +332,7 @@ angular.module('angularCharts').directive('acChart', [
           });
           linedata.push(d);
         });
-        var svg = d3.select(chartContainer[0]).append('svg').attr('width', width + margin.left + margin.right).attr('height', height + margin.top + margin.bottom).append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+        var svg = d3.select(chartContainer[0]).append('svg').attr('width', width + margin.left + margin.right).attr('height', height + margin.top + margin.bottom).attr('xmlns', 'http://www.w3.org/2000/svg').append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
         var padding = d3.max(yData) * 0.2;
         y.domain([
           d3.min(yData),
@@ -476,7 +476,7 @@ angular.module('angularCharts').directive('acChart', [
           });
           linedata.push(d);
         });
-        var svg = d3.select(chartContainer[0]).append('svg').attr('width', width + margin.left + margin.right).attr('height', height + margin.top + margin.bottom).append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+        var svg = d3.select(chartContainer[0]).append('svg').attr('width', width + margin.left + margin.right).attr('height', height + margin.top + margin.bottom).attr('xmlns', 'http://www.w3.org/2000/svg').append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
         var padding = d3.max(yData) * 0.2;
         y.domain([
           d3.min(yData),
@@ -508,7 +508,7 @@ angular.module('angularCharts').directive('acChart', [
      */
       function pieChart() {
         var radius = Math.min(width, height) / 2;
-        var svg = d3.select(chartContainer[0]).append('svg').attr('width', width).attr('height', height).append('g').attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
+        var svg = d3.select(chartContainer[0]).append('svg').attr('width', width).attr('height', height).attr('xmlns', 'http://www.w3.org/2000/svg').append('g').attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
         scope.yMaxData = points.length;
         function firstOrDefault(value) {
           return value instanceof Array ? value[0] : value;
@@ -604,7 +604,7 @@ angular.module('angularCharts').directive('acChart', [
           });
           linedata.push(d);
         });
-        var svg = d3.select(chartContainer[0]).append('svg').attr('width', width + margin.left + margin.right).attr('height', height + margin.top + margin.bottom).append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+        var svg = d3.select(chartContainer[0]).append('svg').attr('width', width + margin.left + margin.right).attr('height', height + margin.top + margin.bottom).attr('xmlns', 'http://www.w3.org/2000/svg').append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
         var padding = d3.max(yData) * 0.2;
         y.domain([
           d3.min(yData),
